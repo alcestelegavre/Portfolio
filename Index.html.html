@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alceste Legavre — Réalisateur · Monteur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8D08A;
+    --gold-dim: #8A6F30;
+    --dark: #0A0A0A;
+    --dark2: #111111;
+    --dark3: #1A1A1A;
+    --dark4: #222222;
+    --mid: #3A3A3A;
+    --light: #F5F2EC;
+    --muted: #888880;
+    --white: #FAFAF8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--light);
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    cursor: default;
+  }
+
+  ::selection { background: var(--gold); color: var(--dark); }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 4rem;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid rgba(201,168,76,0.15);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.25s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--dark) !important;
+    background: var(--gold);
+    padding: 0.55rem 1.4rem;
+    text-decoration: none;
+    transition: background 0.25s;
+  }
+
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--dark) !important; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 4rem 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 75% 40%, rgba(201,168,76,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 20% 70%, rgba(201,168,76,0.04) 0%, transparent 60%);
+  }
+
+  .hero-lines {
+    position: absolute;
+    top: 0; right: 0;
+    width: 45%;
+    height: 100%;
+    opacity: 0.06;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 79px,
+      rgba(201,168,76,0.8) 79px,
+      rgba(201,168,76,0.8) 80px
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+  }
+
+  .hero-tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 0.5px;
+    background: var(--gold);
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(4rem, 9vw, 8rem);
+    font-weight: 300;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-bio {
+    max-width: 560px;
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: rgba(245,242,236,0.65);
+    margin-bottom: 3rem;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-bio strong { color: var(--gold); font-weight: 500; }
+
+  .hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--gold);
+    color: var(--dark);
+    text-decoration: none;
+    padding: 0.85rem 2rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: background 0.25s, transform 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--light);
+    text-decoration: none;
+    padding: 0.85rem 2rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    border: 0.5px solid rgba(245,242,236,0.25);
+    transition: border-color 0.25s, color 0.25s;
+  }
+
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    right: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--muted);
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .hero-scroll::after {
+    content: '';
+    display: block;
+    width: 0.5px;
+    height: 50px;
+    background: linear-gradient(to bottom, var(--muted), transparent);
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollLine {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  /* SECTIONS */
+  section { padding: 6rem 4rem; }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .section-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.8rem;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: var(--white);
+    letter-spacing: -0.01em;
+  }
+
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  .section-line {
+    flex: 1;
+    height: 0.5px;
+    background: rgba(245,242,236,0.1);
+    margin-left: 1rem;
+  }
+
+  /* FILMS GRID */
+  #films { background: var(--dark2); }
+
+  .films-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+  }
+
+  .film-card {
+    position: relative;
+    aspect-ratio: 16/9;
+    background: var(--dark3);
+    overflow: hidden;
+    cursor: pointer;
+    group: true;
+  }
+
+  .film-card.featured {
+    grid-column: span 2;
+    aspect-ratio: 21/9;
+  }
+
+  .film-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: var(--dark3);
+    transition: background 0.3s;
+  }
+
+  .film-card:hover .film-placeholder { background: var(--dark4); }
+
+  .film-placeholder-icon {
+    width: 48px;
+    height: 48px;
+    border: 0.5px solid rgba(201,168,76,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(201,168,76,0.4);
+    font-size: 1.2rem;
+  }
+
+  .film-placeholder-text {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.3);
+  }
+
+  .film-info {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+    transform: translateY(8px);
+    transition: transform 0.3s;
+  }
+
+  .film-card:hover .film-info { transform: translateY(0); }
+
+  .film-badge {
+    display: inline-block;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 0.5px solid var(--gold-dim);
+    padding: 0.2rem 0.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .film-badge.award {
+    color: var(--gold);
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.1);
+  }
+
+  .film-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--white);
+    letter-spacing: 0.04em;
+  }
+
+  .film-role {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.25rem;
+  }
+
+  .film-year {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+  }
+
+  /* ABOUT */
+  #about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(245,242,236,0.8);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-text p strong {
+    color: var(--white);
+    font-weight: 400;
+  }
+
+  .about-placeholder {
+    background: var(--dark3);
+    aspect-ratio: 3/4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    border: 0.5px solid rgba(201,168,76,0.1);
+    color: rgba(201,168,76,0.25);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* COMPÉTENCES */
+  .skills-section { background: var(--dark2); }
+
+  .skills-cols {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+  }
+
+  .skill-block {
+    background: var(--dark3);
+    padding: 2rem 1.5rem;
+    border-top: 2px solid transparent;
+    transition: border-color 0.3s;
+  }
+
+  .skill-block:hover { border-top-color: var(--gold); }
+
+  .skill-block-title {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .skill-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .skill-list li {
+    font-size: 0.85rem;
+    color: rgba(245,242,236,0.7);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .skill-list li::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 4px;
+    background: var(--gold-dim);
+  }
+
+  /* EXPERIENCE */
+  .exp-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 3rem;
+    padding: 2.5rem 0;
+    border-bottom: 0.5px solid rgba(245,242,236,0.06);
+  }
+
+  .exp-item:first-child { border-top: 0.5px solid rgba(245,242,236,0.06); }
+
+  .exp-date {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-transform: uppercase;
+    padding-top: 0.2rem;
+  }
+
+  .exp-content-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+  }
+
+  .exp-content-sub {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.8rem;
+  }
+
+  .exp-content-desc {
+    font-size: 0.83rem;
+    color: rgba(245,242,236,0.6);
+    line-height: 1.7;
+  }
+
+  .exp-tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: 0.5px solid rgba(201,168,76,0.35);
+    color: var(--gold-dim);
+    padding: 0.15rem 0.55rem;
+    margin-top: 0.7rem;
+    margin-right: 0.4rem;
+  }
+
+  /* CONTACT */
+  #contact { background: var(--dark2); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 2rem;
+  }
+
+  .contact-heading em { color: var(--gold); font-style: italic; }
+
+  .contact-note {
+    font-size: 0.83rem;
+    color: rgba(245,242,236,0.5);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-info-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-info-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.83rem;
+  }
+
+  .contact-info-list .label {
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    min-width: 80px;
+  }
+
+  .contact-info-list a {
+    color: var(--light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-info-list a:hover { color: var(--gold); }
+
+  .contact-vie {
+    background: var(--dark3);
+    border: 0.5px solid rgba(201,168,76,0.2);
+    padding: 2rem;
+    margin-top: 2rem;
+  }
+
+  .contact-vie-title {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .contact-vie p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: rgba(245,242,236,0.75);
+    line-height: 1.7;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 4rem;
+    border-top: 0.5px solid rgba(245,242,236,0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+
+  footer a {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* ANIM */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .delay-1 { animation-delay: 0.15s; }
+  .delay-2 { animation-delay: 0.3s; }
+  .delay-3 { animation-delay: 0.45s; }
+  .delay-4 { animation-delay: 0.6s; }
+
+  /* CURSOR DOT */
+  .cursor-dot {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s;
+    transform: translate(-50%, -50%);
+  }
+
+  /* MISE EN FORME INTERNE */
+  .notice {
+    background: rgba(201,168,76,0.06);
+    border-left: 2px solid var(--gold-dim);
+    padding: 1rem 1.25rem;
+    font-size: 0.78rem;
+    color: rgba(201,168,76,0.7);
+    letter-spacing: 0.05em;
+    line-height: 1.6;
+    margin-top: 1rem;
+    font-style: italic;
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 1.5rem; }
+    nav .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    #hero { padding: 0 1.5rem 5rem; }
+    .films-grid { grid-template-columns: 1fr; }
+    .film-card.featured { grid-column: span 1; aspect-ratio: 16/9; }
+    #about { grid-template-columns: 1fr; gap: 3rem; }
+    .skills-cols { grid-template-columns: 1fr 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursor"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Alceste Legavre</a>
+  <ul class="nav-links">
+    <li><a href="#films">Films</a></li>
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#competences">Compétences</a></li>
+    <li><a href="#parcours">Parcours</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+
+  <div class="hero-content">
+    <div class="hero-tag fade-up">Réalisateur · Monteur · Paris</div>
+
+    <h1 class="fade-up delay-1">
+      Alceste<br>
+      <em>Legavre</em>
+    </h1>
+
+    <p class="hero-sub fade-up delay-2">Cinéma & Audiovisuel</p>
+
+    <p class="hero-bio fade-up delay-3">
+      Étudiant en Assistanat Réalisation à l'<strong>EICAR</strong> (Paris), diplôme RNCP niveau 6 prévu fin 2026.
+      Maîtrise avancée de la suite Adobe, expérience en écriture, réalisation et post-production —
+      <strong>sélectionné au Nikon Film Festival</strong>, <strong>finaliste au Grand Rex</strong>.
+      Disponible pour un <strong>VIE 12 mois à Montréal</strong> à partir de novembre 2026.
+    </p>
+
+    <div class="hero-actions fade-up delay-4">
+      <a href="#films" class="btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg>
+        Voir mes films
+      </a>
+      <a href="#contact" class="btn-secondary">Me contacter</a>
+      <a href="https://www.linkedin.com/in/alceste-legavre-bb8018280" target="_blank" class="btn-secondary">
+        LinkedIn
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- FILMS -->
+<section id="films">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Mes <em>Films</em></h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="films-grid">
+
+    <!-- STAND TALL - Featured -->
+    <div class="film-card featured">
+      <div class="film-placeholder">
+        <div class="film-placeholder-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <span class="film-placeholder-text">→ Ajouter la miniature de STAND TALL ici</span>
+      </div>
+      <span class="film-year">2026</span>
+      <div class="film-info">
+        <span class="film-badge">Court-métrage · 10 min</span>
+        <span class="film-badge">Film de fin d'études EICAR</span>
+        <h3 class="film-title">Stand Tall</h3>
+        <p class="film-role">1er Assistant Réalisateur</p>
+      </div>
+    </div>
+
+    <!-- MASCARADE -->
+    <div class="film-card">
+      <div class="film-placeholder">
+        <div class="film-placeholder-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <span class="film-placeholder-text">→ Miniature Mascarade</span>
+      </div>
+      <span class="film-year">2025</span>
+      <div class="film-info">
+        <span class="film-badge award">✦ Nikon Film Festival</span>
+        <h3 class="film-title">Mascarade</h3>
+        <p class="film-role">1er Assistant Réalisateur</p>
+      </div>
+    </div>
+
+    <!-- LES MÉANDRES -->
+    <div class="film-card">
+      <div class="film-placeholder">
+        <div class="film-placeholder-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <span class="film-placeholder-text">→ Miniature Les Méandres</span>
+      </div>
+      <span class="film-year">2024</span>
+      <div class="film-info">
+        <span class="film-badge award">✦ Nikon Film Festival</span>
+        <h3 class="film-title">Les Méandres de nos Cœurs</h3>
+        <p class="film-role">Réalisateur & Scénariste</p>
+      </div>
+    </div>
+
+    <!-- L'ÉVEIL -->
+    <div class="film-card">
+      <div class="film-placeholder">
+        <div class="film-placeholder-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <span class="film-placeholder-text">→ Miniature L'Éveil</span>
+      </div>
+      <span class="film-year">2024</span>
+      <div class="film-info">
+        <span class="film-badge">Court-métrage</span>
+        <h3 class="film-title">L'Éveil</h3>
+        <p class="film-role">Réalisateur & Scénariste</p>
+      </div>
+    </div>
+
+    <!-- SHAPER -->
+    <div class="film-card">
+      <div class="film-placeholder">
+        <div class="film-placeholder-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <span class="film-placeholder-text">→ Miniature Shaper</span>
+      </div>
+      <span class="film-year">2025</span>
+      <div class="film-info">
+        <span class="film-badge award">✦ Finaliste Grand Rex</span>
+        <h3 class="film-title">Shaper</h3>
+        <p class="film-role">Co-Réalisateur · Documentaire</p>
+      </div>
+    </div>
+
+    <!-- L'EXCEPTION -->
+    <div class="film-card">
+      <div class="film-placeholder">
+        <div class="film-placeholder-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <span class="film-placeholder-text">→ Miniature L'Exception</span>
+      </div>
+      <span class="film-year">2025</span>
+      <div class="film-info">
+        <span class="film-badge">Documentaire</span>
+        <h3 class="film-title">L'Exception</h3>
+        <p class="film-role">Réalisateur & Scénariste</p>
+      </div>
+    </div>
+
+    <!-- AZURA -->
+    <div class="film-card">
+      <div class="film-placeholder">
+        <div class="film-placeholder-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <span class="film-placeholder-text">→ Miniature Azura</span>
+      </div>
+      <span class="film-year">2025</span>
+      <div class="film-info">
+        <span class="film-badge">Clip Musical</span>
+        <h3 class="film-title">Azura</h3>
+        <p class="film-role">Réalisateur</p>
+      </div>
+    </div>
+
+    <!-- BANDE DÉMO -->
+    <div class="film-card featured" style="background: rgba(201,168,76,0.04); border: 0.5px solid rgba(201,168,76,0.2);">
+      <div class="film-placeholder" style="background: transparent; gap: 1.5rem;">
+        <div style="text-align: center;">
+          <div style="font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem;">Bande démo complète</div>
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; color: var(--white);">→ Ajouter ici le lien de ta bande démo</div>
+          <div style="font-size: 0.72rem; color: var(--muted); margin-top: 0.5rem; letter-spacing: 0.08em;">Remplace ce bloc par un embed YouTube / Vimeo ou un lien direct</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="padding: 6rem 4rem;">
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start;">
+
+    <div>
+      <div class="section-header" style="margin-bottom: 2.5rem;">
+        <span class="section-num">02</span>
+        <h2 class="section-title">À <em>Propos</em></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="about-text">
+        <p>
+          Réalisateur et monteur basé à Paris, formé à l'<strong>EICAR</strong> — l'une des écoles de cinéma les plus reconnues en France. Diplôme RNCP niveau 6 prévu fin 2026.
+        </p>
+        <p>
+          Passionné de <strong>cinéma de genre</strong>, de photographie et de voyages, je conçois chaque projet comme un territoire visuel à explorer, de l'écriture au montage final.
+        </p>
+        <p>
+          Mes films ont été <strong>sélectionnés au Nikon Film Festival</strong> et finalistes au <strong>Grand Rex</strong>. En parallèle de mes études, j'ai livré plus de 30 montages professionnels pour un cabinet juridique en tant qu'auto-entrepreneur.
+        </p>
+        <p>
+          Je recherche un <strong>VIE de 12 mois à Montréal</strong> à partir de novembre 2026, pour m'immerger dans l'industrie audiovisuelle canadienne et développer mon regard international.
+        </p>
+        <div class="notice">
+          → Espace libre : tu peux ajouter ici une citation personnelle, une anecdote marquante, ou une phrase qui résume ta vision du cinéma.
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="about-placeholder" style="aspect-ratio: 3/4;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+        <span>→ Ajouter ta photo ici</span>
+        <span style="font-size: 0.58rem; color: rgba(201,168,76,0.2);">Format portrait recommandé · 3:4</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPÉTENCES -->
+<section id="competences" class="skills-section">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title"><em>Compétences</em> & Outils</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="skills-cols">
+
+    <div class="skill-block">
+      <div class="skill-block-title">Logiciels</div>
+      <ul class="skill-list">
+        <li>Premiere Pro</li>
+        <li>After Effects</li>
+        <li>DaVinci Resolve</li>
+        <li>Photoshop</li>
+        <li>Audition</li>
+        <li>Illustrator</li>
+        <li>Final Draft</li>
+        <li>Frame.io</li>
+      </ul>
+    </div>
+
+    <div class="skill-block">
+      <div class="skill-block-title">Caméra & Stabilisation</div>
+      <ul class="skill-list">
+        <li>Sony FX6</li>
+        <li>Sony FX3</li>
+        <li>Sony A7IV</li>
+        <li>Easy Rig</li>
+        <li>DJI Ronin</li>
+      </ul>
+    </div>
+
+    <div class="skill-block">
+      <div class="skill-block-title">Éclairage & Son</div>
+      <ul class="skill-list">
+        <li>LED · Fresnel</li>
+        <li>HMI · Kino Flo</li>
+        <li>Zoom H6</li>
+        <li>Perche</li>
+        <li>DJI Mic</li>
+      </ul>
+    </div>
+
+    <div class="skill-block">
+      <div class="skill-block-title">Savoir-faire</div>
+      <ul class="skill-list">
+        <li>Écriture scénario</li>
+        <li>Réalisation</li>
+        <li>Montage vidéo & son</li>
+        <li>Post-production</li>
+        <li>Captation autonome</li>
+        <li>Direction de plateau</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- PARCOURS -->
+<section id="parcours">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Mon <em>Parcours</em></h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div class="exp-date">2024 — 2026</div>
+      <div>
+        <h3 class="exp-content-title">EICAR — École Internationale de Création Audiovisuelle et de Réalisation</h3>
+        <p class="exp-content-sub">Assistanat Réalisation & Cinéma · Diplôme RNCP Niveau 6 · Paris</p>
+        <p class="exp-content-desc">
+          Écriture de scénario, réalisation, montage vidéo & son.<br>
+          Film de fin d'études : <em>Stand Tall</em> — court-métrage 10 min.
+        </p>
+        <span class="exp-tag">Formation</span>
+        <span class="exp-tag">Bac+3</span>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">2026 · 1 an</div>
+      <div>
+        <h3 class="exp-content-title">zLawyer</h3>
+        <p class="exp-content-sub">Opérateur de prise de vues & Monteur · Auto-Entrepreneur</p>
+        <p class="exp-content-desc">
+          Captations et montages de contenus numériques pour un cabinet juridique.<br>
+          ~30 montages livrés pour diffusion sur site pro, Instagram, LinkedIn, YouTube.<br>
+          ~10 captations tournées et montées en autonomie complète.
+        </p>
+        <span class="exp-tag">Auto-Entrepreneur</span>
+        <span class="exp-tag">Production</span>
+        <span class="exp-tag">Montage</span>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">2025 · 4 mois</div>
+      <div>
+        <h3 class="exp-content-title">Le Multi Screen Grand Prix</h3>
+        <p class="exp-content-sub">Stage · 1 mois (déc. 2025) + 3 mois (mai–juil. 2025)</p>
+        <p class="exp-content-desc">
+          Événement audiovisuel qui vise à récompenser les films / séries / émissions de l'année.<br>
+          Dossier de prod complexe — démarcher les boîtes de prod — organiser une grande cérémonie avec tout l'audiovisuel français.
+        </p>
+        <span class="exp-tag">Stage</span>
+        <span class="exp-tag">Production</span>
+        <span class="exp-tag">Événementiel</span>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">2023 — 2024</div>
+      <div>
+        <h3 class="exp-content-title">Ynov Paris</h3>
+        <p class="exp-content-sub">Audiovisuel & Communication · 1re année</p>
+        <p class="exp-content-desc">Première année d'études supérieures en audiovisuel et communication.</p>
+        <span class="exp-tag">Formation</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+
+    <div>
+      <div class="section-header" style="margin-bottom: 2rem;">
+        <span class="section-num">05</span>
+        <div class="section-line"></div>
+      </div>
+      <h2 class="contact-heading">Travaillons <em>ensemble</em></h2>
+      <p class="contact-note">
+        Disponible pour un VIE de 12 mois à Montréal à partir de novembre 2026.
+        Ouvert à toute opportunité dans le secteur audiovisuel ou du montage au Canada.
+      </p>
+      <ul class="contact-info-list">
+        <li>
+          <span class="label">Email</span>
+          <a href="mailto:alceste.legavre@gmail.com">alceste.legavre@gmail.com</a>
+        </li>
+        <li>
+          <span class="label">Tél.</span>
+          <a href="tel:0631002485">06 31 00 24 85</a>
+        </li>
+        <li>
+          <span class="label">Localisation</span>
+          <span style="color: var(--light);">Paris, France</span>
+        </li>
+        <li>
+          <span class="label">LinkedIn</span>
+          <a href="https://www.linkedin.com/in/alceste-legavre-bb8018280" target="_blank">alceste-legavre</a>
+        </li>
+        <li>
+          <span class="label">Bande démo</span>
+          <span style="color: var(--muted); font-style: italic;">→ Ajouter le lien ici</span>
+        </li>
+        <li>
+          <span class="label">Portfolio vidéo</span>
+          <span style="color: var(--muted); font-style: italic;">→ Ajouter le lien ici</span>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="contact-vie">
+        <div class="contact-vie-title">✦ Recherche active · VIE Canada</div>
+        <p>
+          Je recherche un Volontariat International en Entreprise d'une durée de 12 mois dans le secteur audiovisuel canadien, de préférence à Montréal, à partir de <strong>novembre 2026</strong>.
+        </p>
+      </div>
+
+      <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+        <a href="mailto:alceste.legavre@gmail.com" class="btn-primary" style="justify-content: center;">
+          M'envoyer un email
+        </a>
+        <a href="https://www.linkedin.com/in/alceste-legavre-bb8018280" target="_blank" class="btn-secondary" style="justify-content: center;">
+          Voir mon LinkedIn
+        </a>
+        <div class="notice" style="margin-top: 0.5rem;">
+          → Ajoute ici un lien de téléchargement vers ton CV PDF ou ta bande démo.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Alceste Legavre · Réalisateur · Monteur</p>
+  <p>Paris, France · VIE Montréal dès novembre 2026</p>
+  <a href="https://www.linkedin.com/in/alceste-legavre-bb8018280" target="_blank">LinkedIn</a>
+</footer>
+
+<script>
+  const cursor = document.getElementById('cursor');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.transform = 'translate(-50%, -50%) scale(2.5)';
+      cursor.style.background = 'rgba(201,168,76,0.5)';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+      cursor.style.background = 'var(--gold)';
+    });
+  });
+</script>
+
+</body>
+</html>
